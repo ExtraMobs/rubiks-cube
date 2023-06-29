@@ -35,13 +35,14 @@ class MainScene(BaseScene):
 
     def update(self):
         super().update()
-        mod_key = ""
         if Keyboard.get_pressed(pygame.K_LSHIFT):
             mod_key = "'"
         elif (Keyboard.get_pressed(pygame.K_2) is not None) and (
             Keyboard.get_pressed(pygame.K_KP_2) is not None
         ):
             mod_key = "2"
+        else:
+            mod_key = ""
         for event in Keyboard.pressed_in_frame[pygame.KEYDOWN]:
             match event.key:
                 case pygame.K_f:
@@ -69,13 +70,13 @@ class MainScene(BaseScene):
 
     def draw(self):
         super().draw()
-        TOPRIGHT = self.cube.scale * 6
-        Display.surface.blit(self.font_rendered, (TOPRIGHT + 5, 2))
+        SIX_BLOCKS = self.cube.scale * 6
+        Display.surface.blit(self.font_rendered, (SIX_BLOCKS + 5, 2))
         Display.surface.blit(
             self.font.render(
                 "\n".join(self.cube.log_moves[-8:][::-1]), True, (0, 0, 0)
             ),
-            (TOPRIGHT + 5, TOPRIGHT + 5),
+            (SIX_BLOCKS + 5, SIX_BLOCKS + 5),
         )
 
 

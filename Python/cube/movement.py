@@ -9,16 +9,14 @@ class Movement:
     class SolveMove:
         solve_delay = 200
         type = pygame.event.custom_type()
-        
+
         @classmethod
         def disable_timer(cls):
             pygame.time.set_timer(cls.type, 0, 0)
 
         @classmethod
         def enable_timer(cls, moves):
-            pygame.time.set_timer(
-                cls.type, cls.solve_delay, len(moves)
-            )
+            pygame.time.set_timer(cls.type, cls.solve_delay, len(moves))
 
     def __init__(self) -> None:
         self._solve_moves = []
@@ -255,7 +253,7 @@ class Movement:
         return 1
 
     def __is_redundant(self, command):
-        return command[1] != "1"
+        return command[1] == "1"
 
     def __exist(self, command):
         return command in ORIENTATION.IN_TUPLE
@@ -266,7 +264,7 @@ class Movement:
             reverse = self.__is_reverse(command)
             times = self.__get_times(command)
             redundance = self.__is_redundant(command)
-            if (not reverse) and (times == 1) and (redundance):
+            if (not reverse) and (times == 1) and not (redundance):
                 raise Exception("Illegal movement")
             return move_key, reverse, times
         return move_key, False, 1
