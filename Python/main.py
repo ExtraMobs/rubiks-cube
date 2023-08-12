@@ -1,7 +1,4 @@
-import random
-
 import pygame
-
 from cube.cube import Cube
 from gameengine.basescene import BaseScene
 from gameengine.display import Display

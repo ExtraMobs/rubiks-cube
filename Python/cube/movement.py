@@ -1,7 +1,6 @@
 import random
 
 import pygame
-
 from values import ORIENTATION
 
 

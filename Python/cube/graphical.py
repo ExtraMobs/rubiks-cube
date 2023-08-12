@@ -1,5 +1,4 @@
 import pygame
-
 from gameengine.basechild import BaseChild
 from gameengine.display import Display
 from gameengine.resources import Resources

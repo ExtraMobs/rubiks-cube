@@ -1,5 +1,4 @@
 import twophase.solver as sv
-
 from cube.graphical import Graphical
 from cube.movement import Movement
 from values import COLOR, ORIENTATION

@@ -1,5 +1,4 @@
 import pygame
-
 from gameengine.keyboard import Keyboard
 
 from .display import Display
